@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+C:\Gust\Program\SVN\Java\Android-Apps\.metadata\.plugins\org.eclipse.jdt.core
-1374716865.index
-2642744774.index

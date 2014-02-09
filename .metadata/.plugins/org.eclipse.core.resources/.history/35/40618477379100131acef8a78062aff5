@@ -1,7 +1,0 @@
-package droidz.game;
-
-import android.view.SurfaceView;
-
-public class DroidzHabitatPanel extends SurfaceView {
-
-}
