@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import droidz.helloworld.Droidz;
+import droidz.game.data.Droidz;
 import droidz.helloworld.R;
 
 public class DroidzHabitatPanel extends SurfaceView implements

@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="droidz.helloworld.DroidzActivity"
+            android:name="droidz.game.DroidzActivity"
             android:label="@string/title_activity_droidz" >
         </activity>
     </application>

@@ -1,5 +1,7 @@
-package droidz.helloworld;
+package droidz.game;
 
+import droidz.helloworld.R;
+import droidz.helloworld.R.menu;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package droidz.helloworld;
+package droidz.game.data;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
