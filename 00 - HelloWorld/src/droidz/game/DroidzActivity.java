@@ -1,13 +1,12 @@
 package droidz.game;
 
-import droidz.helloworld.R;
-import droidz.helloworld.R.menu;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
+import droidz.helloworld.R;
 
 public class DroidzActivity extends Activity {
 	
@@ -22,7 +21,9 @@ public class DroidzActivity extends Activity {
 		
 		//Fullscreen
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		
+
+		//setContentView(new DroidzHabitatPanel(this));
+        setContentView(R.layout.activity_droidz);
 	}
 
 	@Override

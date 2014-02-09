@@ -12,6 +12,8 @@ public class MainDroidzThread extends Thread {
 	private SurfaceHolder surfaceHolder;
 	private DroidzHabitatPanel gamePanel;
 	
+	private long startTime;
+	
 	public MainDroidzThread(SurfaceHolder surfaceHolder, DroidzHabitatPanel gamePanel) {
 		super();
 		this.surfaceHolder = surfaceHolder;
@@ -26,7 +28,13 @@ public class MainDroidzThread extends Thread {
 	public void run() {
 		Canvas canvas;
 		Log.d(TAG, "Start GameLoop");
-		while(running) {
+
+		startTime = System.nanoTime();
+		while(running) {			
+			float deltaTime = (System.nanoTime() - startTime) / 1000000000.0f;
+			startTime = System.nanoTime();
+			//Update 
+			this.gamePanel.update(deltaTime);
 			canvas = null;
 			//Try lock canvas
 			try {
@@ -42,7 +50,6 @@ public class MainDroidzThread extends Thread {
 			}
 		}
 		Log.d(TAG, "GameLoop ended");
-	}
-	
+	}	
 
 }

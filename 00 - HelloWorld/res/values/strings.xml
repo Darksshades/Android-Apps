@@ -7,5 +7,6 @@
     <string name="title_activity_droidz">DroidzActivity</string>
     <string name="droidz_desc">Droidz image</string>
     <string name="droidz_play">Play!</string>
+    <string name="game_title">Don\'t let him pass ! Move the virus to kill him.</string>
 
 </resources>

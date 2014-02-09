@@ -2,14 +2,14 @@ package droidz.game.data;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.util.Log;
 
 public class Droidz {
 	private Bitmap bitmap;
 	private float x;
 	private float y;
 	private boolean touched;
-	private int speedX = 10;
+	private int speedX = 0;
+	private int speedY = 0;
 	
 	public Droidz(Bitmap bitmap, int x, int y) {
 		this.x = x;
@@ -22,7 +22,8 @@ public class Droidz {
 	 * @param canvas
 	 */
 	public void draw(Canvas canvas) {
-		canvas.drawBitmap(bitmap, x- (bitmap.getWidth()/2), y - (bitmap.getHeight()/2), null);
+		if(bitmap != null)
+			canvas.drawBitmap(bitmap, x- (bitmap.getWidth()/2), y - (bitmap.getHeight()/2), null);
 	}
 	
 	/**
@@ -40,10 +41,14 @@ public class Droidz {
 		} else { setTouched(false);}
 	}
 	
-	public void update(int delta) {
-		float increment = speedX * (float)(delta * 0.001f);
-		Log.i("Droidz increment", "+" + increment + " Speed added.");
-		x += increment;
+	public void update(float delta) {
+		float incrementX = speedX * (float)(delta);
+		float incrementY = speedY * (float)(delta);
+		//Log.i("Droidz increment", "x+" + incrementX + " Speed added.");
+		//Log.i("Droidz increment", "y+" + incrementY + " Speed added.");
+		x += incrementX;
+		y += incrementY;
+		//Log.i("Droidz increment", "Pos: " + x + ", " + y);
 	}
 
 	/* Getters and Setters */
@@ -56,21 +61,33 @@ public class Droidz {
 	public void setBitmap(Bitmap bitmap) {
 		this.bitmap = bitmap;
 	}
+	
+	public void setSpeedY(int speedY) {
+		this.speedY = speedY;
+	}
 
-	public float getX() {
-		return x;
+	public int getX() {
+		return (int)Math.floor(x);
 	}
 
 	public void setX(int x) {
 		this.x = x;
 	}
 
-	public float getY() {
-		return y;
+	public int getY() {
+		return (int)Math.floor(y);
 	}
 
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	public int getWidth() {
+		return bitmap.getWidth();
+	}
+	
+	public int getHeight() {
+		return bitmap.getHeight();
 	}
 
 	public boolean isTouched() {
