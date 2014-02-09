@@ -1,0 +1,41 @@
+[
+  {
+    "symbolicName": "android-support-v4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "5896b0a4e377ac4242eb2bc785220c1c4fc052f4",
+    "jarFileModificationDate": "2014-02-09T00:42:17.988-02:00",
+    "location": "C:\\Gust\\Program\\SVN\\Java\\Android-Apps\\00 - HelloWorld\\libs\\android-support-v4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android-support-v7-gridlayout",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "dc599541832ac74f67507f0cd01683f7d4f3cac7",
+    "jarFileModificationDate": "2014-02-07T02:54:18.344-02:00",
+    "location": "C:\\Gust\\Program\\SVN\\Java\\Android-Apps\\gridlayout_v7\\libs\\android-support-v7-gridlayout.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e8f132406a3a24842242815287e32bb1d7ed0b97",
+    "jarFileModificationDate": "2014-02-07T02:45:51.531-02:00",
+    "location": "C:\\Programas\\Android sdk\\platforms\\android-19\\android.jar",
+    "javaRuntime": false
+  }
+]

@@ -1,0 +1,11 @@
+package droidz.game;
+
+import android.view.SurfaceHolder;
+
+public class MainDroidzThread extends Thread {
+	
+	private static final String TAG = MainDroidzThread.class.getSimpleName();
+	private boolean running;
+	private SurfaceHolderr surfaceHolder;
+
+}

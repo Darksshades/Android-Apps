@@ -1,0 +1,8 @@
+package droidz.helloworld;
+
+import android.graphics.Bitmap;
+
+public class Droidz {
+	private Bitmap bitmap;
+	private Vector2f vec;
+}

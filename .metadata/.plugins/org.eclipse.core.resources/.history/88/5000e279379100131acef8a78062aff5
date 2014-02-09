@@ -1,0 +1,9 @@
+package droidz.game;
+
+import android.view.SurfaceView;
+
+public class DroidzHabitatPanel extends SurfaceView {
+	
+	private static final String TAG = MainThread.class.getSimpleName();
+
+}

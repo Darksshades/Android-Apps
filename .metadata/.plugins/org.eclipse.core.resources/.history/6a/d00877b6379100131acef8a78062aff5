@@ -1,0 +1,7 @@
+package droidz.game;
+
+public class MainDroidzThread extends Thread {
+	
+	private static final String TAG = MainThread.class.getSimpleName();
+
+}

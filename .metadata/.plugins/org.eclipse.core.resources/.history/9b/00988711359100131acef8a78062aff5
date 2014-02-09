@@ -1,0 +1,10 @@
+package droidz.helloworld;
+
+import android.graphics.Bitmap;
+
+public class Droidz {
+	private Bitmap bitmap;
+	private int x;
+	private int y;
+	private bool touch;
+}

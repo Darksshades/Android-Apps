@@ -1,0 +1,5 @@
+package droidz.game;
+
+public class MainDroidzThread extends Thread {
+
+}

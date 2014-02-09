@@ -1,0 +1,16 @@
+package droidz.helloworld;
+
+import android.graphics.Bitmap;
+
+public class Droidz {
+	private Bitmap bitmap;
+	private int x;
+	private int y;
+	private boolean touched;
+	
+	public Droidz(Bitmap bitmap, int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.bitmap = bitmap;
+	}
+}

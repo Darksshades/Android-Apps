@@ -1,0 +1,20 @@
+package droidz.game;
+
+import android.content.Context;
+import android.view.SurfaceView;
+import droidz.helloworld.Droidz;
+
+public class DroidzHabitatPanel extends SurfaceView implements
+	SurfaceHolder.Callback{
+	
+	private static final String TAG = DroidzHabitatPanel.class.getSimpleName();
+	
+	private MainDroidzThread thread;
+	private Droidz droidz;
+	
+	public DroidzHabitatPanel(Context context) {
+		super(context);
+		getHolder().addCallback(this);
+	}
+
+}

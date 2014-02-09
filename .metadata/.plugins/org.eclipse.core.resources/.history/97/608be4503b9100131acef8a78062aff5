@@ -1,0 +1,53 @@
+package droidz.game;
+
+import android.R;
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.util.Log;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import droidz.helloworld.Droidz;
+
+public class DroidzHabitatPanel extends SurfaceView implements
+	SurfaceHolder.Callback{
+	
+	private static final String TAG = DroidzHabitatPanel.class.getSimpleName();
+	
+	private MainDroidzThread thread;
+	private Droidz droid;
+	
+	public DroidzHabitatPanel(Context context) {
+		super(context);
+		//Intercepts Events
+		getHolder().addCallback(this);
+		
+		droid = new Droidz(BitmapFactory.decodeResource(getResources(), R.drawable.droidz),50,50);
+		
+		thread = new MainDroidzThread(getHolder(), this);
+		
+		//Set focusable to be able to intercept events
+		setFocusable(true);
+	}
+	
+	@Override
+	public void surfaceCreated(SurfaceHolder holder) {
+		thread.setRunning(true);
+		thread.start();
+		
+	}
+	
+	@Override
+	protected void onDraw(Canvas canvas) {
+		Log.d(TAG, "onDraw called");
+		super.onDraw(canvas);
+	}
+	
+	@Override
+	public void draw(Canvas canvas) {
+		canvas.drawColor(Color.BLACK);
+		super.draw(canvas);
+	}
+
+}
