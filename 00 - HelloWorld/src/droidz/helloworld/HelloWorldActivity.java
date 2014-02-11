@@ -1,6 +1,8 @@
 package droidz.helloworld;
 
+import droidz.game.DroidzActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -26,6 +28,8 @@ public class HelloWorldActivity extends Activity {
     
     public void onPlayBtnClicked(View view) {
     	Log.d(TAG, "Play Btn Clicked");
+    	Intent intent = new Intent(HelloWorldActivity.this, DroidzActivity.class);
+    	startActivity(intent);
     }
     
 }

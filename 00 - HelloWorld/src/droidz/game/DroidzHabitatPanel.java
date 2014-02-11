@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -25,6 +26,10 @@ public class DroidzHabitatPanel extends SurfaceView implements
 	private MainDroidzThread thread;
 	private Droidz droid;
 	private Droidz droidVirus;
+	private int    score;
+	private float  difficulty;
+	Paint paint = new Paint(); 
+	
 	
 	final Handler mHandler = new Handler();
 	
@@ -38,6 +43,12 @@ public class DroidzHabitatPanel extends SurfaceView implements
 		droidVirus = new Droidz(BitmapFactory.decodeResource(getResources(), R.drawable.virus),0,0);
 				
 		thread = new MainDroidzThread(getHolder(), this);
+		score  = 0;
+		difficulty = 1.f;
+		
+		//Text
+		paint.setColor(Color.WHITE); 
+		paint.setTextSize(20); 
 		
 		//Set focusable to be able to intercept events
 		setFocusable(true);
@@ -76,6 +87,7 @@ public class DroidzHabitatPanel extends SurfaceView implements
 		canvas.drawColor(Color.BLACK);
 		droid.draw(canvas);
 		droidVirus.draw(canvas);
+		canvas.drawText("Score: " + score + ", Difficulty: " + difficulty, getWidth()-300, 50, paint);
 		//super.draw(canvas);
 	}
 	
@@ -86,31 +98,61 @@ public class DroidzHabitatPanel extends SurfaceView implements
 			Log.i(TAG, "Collided!");
 			droid.setX(generator.nextInt(getWidth() - droidVirus.getWidth()));
 			droid.setY(0);
-			final int initialSpeed = 50 + generator.nextInt(100 + (int)getHeight()/10);
+			int initialSpeed = (int)(10*difficulty*difficulty) + 
+					(int)(generator.nextInt(100 + (int)getHeight()/10)*difficulty);
+			
+			int maxSpeed = (int)(getHeight()-getHeight()*0.3f);
+			if(initialSpeed > maxSpeed ) initialSpeed = (int)maxSpeed; 
+			
 			droid.setSpeedY(initialSpeed);
+			
+			//Increase score, before difficulty
+			score 	   += 10 + (int)Math.floor(10*(difficulty-1.f) );
+			
+			if(difficulty > 1.5f) {
+				//Starts 40 - 140
+				int speedX = (int)(10*difficulty*difficulty) + 
+						(int)(generator.nextInt((int)(50*difficulty) ) );
+				int dir = generator.nextInt(2);
+				speedX = speedX > getWidth()*0.7? (int)(getWidth()*0.7): speedX;
+				speedX = dir == 1? speedX : -speedX;
+				droid.setSpeedX(speedX);
+				
+				if(difficulty > 2.5f) {
+					//Starts with 66% of beeing bouncy, increases
+					int bounce = generator.nextInt( 1 + (int)(difficulty) );
+					boolean doBounce = bounce == 1? false : true;
+					droid.setBouncy(doBounce);
+				}
+			}
+			
+			//Increase difficulty
+			difficulty += 0.05f;
 			
 			droidVirus.setTouched(false);
 			droidVirus.setX((int)(getWidth()/2.f - droidVirus.getWidth()/2.f));
 			droidVirus.setY(getHeight() - droidVirus.getHeight() - 50);
 			
 			Log.i(TAG, "Speed: " + initialSpeed);
-			((Activity)getContext()).runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					Toast t = Toast.makeText(((Activity)getContext()), "InitialSpeed: " + initialSpeed, Toast.LENGTH_SHORT);
-					t.show();
-				}
-			});
+			//For Toast
+//			final int speed = initialSpeed;
+//			((Activity)getContext()).runOnUiThread(new Runnable() {
+//				@Override
+//				public void run() {
+//					final Toast t = Toast.makeText(((Activity)getContext()), "Speed: " + speed, Toast.LENGTH_SHORT);
+//					t.show();
+//			});
 			
 		
 		} 
 		
+		final int finalScore = score;
 		//If droid go below screen, lose
 		if(droid.getY() > getHeight() - 50) {
 			((Activity)getContext()).runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					Toast t = Toast.makeText(((Activity)getContext()), "You Lose", Toast.LENGTH_SHORT);
+					Toast t = Toast.makeText(((Activity)getContext()), "You Lose: " + finalScore, Toast.LENGTH_LONG);
 					t.show();
 				}
 			});
@@ -149,16 +191,13 @@ public class DroidzHabitatPanel extends SurfaceView implements
 		droidVirus.setX((int)(getWidth()/2.f - droidVirus.getWidth()/2.f));
 		droidVirus.setY(getHeight() - droidVirus.getHeight() - 50);
 		
-
+		
+		droid.setScreenWidth(getWidth());
 		droid.setX(generator.nextInt(getWidth() - droidVirus.getWidth()));		
 		int initialSpeed = generator.nextInt(50 + (int)getHeight()/10);
 		droid.setSpeedY(initialSpeed);
 		
-		Log.i(TAG, "Width: " + getWidth() + " height: " + getHeight());
-		
-		Toast t = Toast.makeText(this.getContext(), "InitialSpeed: " + initialSpeed, Toast.LENGTH_SHORT);
-		t.show();
-		
+		Log.i(TAG, "Width: " + getWidth() + " height: " + getHeight());		
 	}
 
 	@Override
@@ -181,12 +220,7 @@ public class DroidzHabitatPanel extends SurfaceView implements
 		if(event.getAction() == MotionEvent.ACTION_DOWN) {
 			droidVirus.handleActionDown((int)event.getX(), (int)event.getY());
 			
-			if(event.getY() > getHeight() - 50) {
-				thread.setRunning(false);
-				((Activity)getContext()).finish();
-			} else {
-				Log.d(TAG, "Coods: x= " + event.getX() + ", y= " + event.getY());
-			}
+			Log.d(TAG, "Coods: x= " + event.getX() + ", y= " + event.getY());
 		}
 		
 		if(event.getAction() == MotionEvent.ACTION_MOVE) {
