@@ -2,11 +2,17 @@
 *.apk
 *.ap_
 
+# imag files
+*.xcf
+
 # files for the dex VM
 *.dex
 
 # Java class files
 *.class
+*.war
+*.ear
+hs_err_pid*
 
 # generated files
 bin/
@@ -53,3 +59,42 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
+
+## GWT
+war/
+html/war/gwt_bree/
+html/gwt-unitCache/
+.apt_generated/
+html/war/WEB-INF/deploy/
+html/war/WEB-INF/classes/
+.gwt/
+gwt-unitCache/
+www-test/
+.gwt-tmp/
+
+## Android Studio and Intellij and Android in general
+*/*/*/android/libs/armeabi/
+*/*/*/android/libs/armeabi-v7a/
+*/*/*/android/libs/x86/
+.idea/
+*.ipr
+*.iws
+*.iml
+out/
+com_crashlytics_export_strings.xml
+
+## NetBeans
+**/nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+## OS Specific
+.DS_Store
+
+## Project files
+proj_res/
+
