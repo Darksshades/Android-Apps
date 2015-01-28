@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="400" height="20" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Space" tilewidth="32" tileheight="32">
+  <image source="tiled.png" width="190" height="128"/>
+ </tileset>
+ <objectgroup name="objects" width="400" height="20">
+  <object gid="6" x="512" y="80"/>
+  <object gid="6" x="665" y="292"/>
+  <object gid="7" x="978" y="286"/>
+  <object gid="7" x="660" y="90"/>
+  <object gid="8" x="350" y="62"/>
+  <object name="Speedy rounder" gid="9" x="936" y="96">
+   <properties>
+    <property name="speed" value="3.5"/>
+   </properties>
+  </object>
+  <object gid="10" x="1314" y="62"/>
+  <object gid="3" x="1182" y="40"/>
+  <object gid="4" x="1554" y="50"/>
+  <object gid="7" x="1648" y="180"/>
+  <object gid="7" x="1680" y="222"/>
+  <object gid="6" x="1814" y="172"/>
+  <object gid="9" x="2100" y="74"/>
+  <object gid="9" x="2478" y="96"/>
+  <object gid="9" x="2660" y="288"/>
+  <object gid="9" x="3280" y="164"/>
+  <object gid="8" x="2932" y="134"/>
+  <object gid="7" x="3256" y="110"/>
+  <object gid="4" x="3182" y="54"/>
+  <object gid="4" x="2836" y="272"/>
+  <object gid="4" x="2366" y="252"/>
+  <object gid="4" x="2684" y="28"/>
+  <object gid="10" x="3708" y="66"/>
+  <object gid="10" x="3770" y="152"/>
+  <object gid="10" x="3764" y="240"/>
+  <object gid="10" x="3660" y="322"/>
+  <object gid="2" x="3596" y="40"/>
+  <object gid="2" x="3646" y="80"/>
+  <object gid="2" x="3664" y="118"/>
+  <object gid="2" x="3670" y="144"/>
+  <object gid="2" x="3654" y="170"/>
+  <object gid="2" x="3642" y="216"/>
+  <object gid="2" x="3596" y="280"/>
+  <object gid="2" x="3520" y="332"/>
+  <object gid="1" x="3164" y="230"/>
+  <object gid="1" x="3428" y="38"/>
+  <object gid="1" x="2820" y="58"/>
+  <object gid="1" x="2546" y="252"/>
+  <object gid="1" x="2356" y="44"/>
+ </objectgroup>
+</map>

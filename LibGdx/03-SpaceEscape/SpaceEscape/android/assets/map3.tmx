@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="400" height="20" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Space" tilewidth="32" tileheight="32">
+  <image source="tiled.png" width="190" height="128"/>
+ </tileset>
+ <objectgroup name="objects" width="400" height="20">
+  <object gid="8" x="350" y="62"/>
+  <object gid="7" x="422" y="110"/>
+  <object gid="7" x="512" y="130"/>
+  <object gid="7" x="590" y="176"/>
+  <object gid="7" x="604" y="214"/>
+  <object gid="7" x="692" y="258"/>
+  <object gid="7" x="724" y="286"/>
+  <object gid="7" x="794" y="326"/>
+  <object gid="7" x="984" y="70"/>
+  <object gid="7" x="1062" y="178"/>
+  <object gid="7" x="930" y="250"/>
+  <object gid="7" x="1256" y="198"/>
+  <object gid="7" x="1122" y="106"/>
+  <object gid="7" x="1586" y="154"/>
+  <object gid="7" x="1456" y="288"/>
+  <object gid="9" x="910" y="66"/>
+  <object gid="9" x="1282" y="76"/>
+  <object gid="9" x="1044" y="312"/>
+  <object gid="4" x="708" y="142"/>
+  <object gid="4" x="454" y="282"/>
+  <object gid="4" x="630" y="46"/>
+  <object gid="4" x="1338" y="272"/>
+  <object gid="4" x="1522" y="104"/>
+ </objectgroup>
+</map>
